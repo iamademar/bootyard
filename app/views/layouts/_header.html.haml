@@ -2,6 +2,17 @@
   .logo
     = image_tag '/images/logos/bootyard.png'
   .menu
-    = link_to 'Home', '#'
+    -#= link_to 'Home', '#'
     -#= link_to 'Portfolio', '#'
-    = link_to 'Contact Us', '#'
+    = link_to 'Hire Us', "#hire", :class => "inline"
+%div{ :style => "display:none" }
+  #hire.form
+    - form_for(Message.new) do |f|
+      %div
+        = f.label :email
+        = f.text_field :email
+      %div
+        = f.label :message
+        = f.text_area :message
+      %div
+        = f.submit :send
